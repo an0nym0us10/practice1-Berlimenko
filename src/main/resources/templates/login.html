@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+</head>
+<body>
+<h2>Library Management Login</h2>
+
+<!-- Форма обычной аутентификации -->
+<form th:action="@{/auth/login}" method="post">
+  <div>
+    <label>Username:</label>
+    <input type="text" name="username" required />
+  </div>
+  <div>
+    <label>Password:</label>
+    <input type="password" name="password" required />
+  </div>
+  <button type="submit">Login</button>
+</form>
+
+<hr />
+
+<!-- Ссылка на OAuth2 -->
+<a th:href="@{/login/oauth2}">Войти через Google</a>
+
+<!-- Обработка ошибки -->
+<div th:if="${param.error}">
+  <p style="color:red;">Ошибка аутентификации. Попробуйте снова.</p>
+</div>
+</body>
+</html>
